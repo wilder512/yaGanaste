@@ -1,0 +1,24 @@
+org/example/App.java
+ org.example.App
+org/example/Front/WebDto/UserLogin.java
+ org.example.Front.WebDto.UserLogin
+org/example/BackEnd/RestController/Interface/IUserDynamoDBController.java
+ org.example.BackEnd.RestController.Interface.IUserDynamoDBController
+org/example/BackEnd/Entity/User.java
+ org.example.BackEnd.Entity.User
+org/example/BackEnd/DTO/UserDtod.java
+ org.example.BackEnd.DTO.UserDtod
+org/example/BackEnd/Service/Interfaces/UserService.java
+ org.example.BackEnd.Service.Interfaces.UserService
+org/example/BackEnd/DTO/UserLogin.java
+ org.example.BackEnd.DTO.UserLogin
+org/example/BackEnd/configuration/ConfigurationDynamoDB.java
+ org.example.BackEnd.configuration.ConfigurationDynamoDB
+org/example/BackEnd/Service/Implements/UserServiceImplement.java
+ org.example.BackEnd.Service.Implements.UserServiceImplement
+org/example/Front/WebController/LoginController.java
+ org.example.Front.WebController.LoginController
+org/example/BackEnd/Repository/Interfaces/UserRepository.java
+ org.example.BackEnd.Repository.Interfaces.UserRepository
+org/example/BackEnd/RestController/Implements/UserDynamoDBController.java
+ org.example.BackEnd.RestController.Implements.UserDynamoDBController

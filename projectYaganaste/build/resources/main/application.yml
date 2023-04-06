@@ -1,0 +1,22 @@
+cloud:
+  aws:
+    region:
+      static: us-east-1
+      auto: false
+    stack:
+      auto: false
+    credentials:
+      access-key: AKIAQYPDUNZLHT4BGLZX
+      secret-key: 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
+    end-point:
+      url: https://sqs.us-east-1.amazonaws.com/052553870934/sqs_proyecto-v
+    s3:
+      bucket: s3-files-protyecto-v
+      region: us-east-1
+    dynamodb:
+      region: us-east-1
+      endpoint: dynamodb.us-east-1.amazonaws.com
+
+
+
+

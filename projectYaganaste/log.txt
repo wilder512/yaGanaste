@@ -1,0 +1,204 @@
+2022-08-10 17:27:20.366  INFO 1 --- [enerContainer-2] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values:                                                                               
+        acks = -1                                                                                                                                                                                     
+        batch.size = 16384                                                                                                                                                                            
+        bootstrap.servers = [sbmdeqlzi001.ambientesbc.lab:9093, sbmdeqlzi002.ambientesbc.lab:9093, sbmdeqlzi003.ambientesbc.lab:9093]                                                                 
+        buffer.memory = 33554432                                                                                                                                                                      
+        client.dns.lookup = use_all_dns_ips                                                                                                                                                           
+        client.id = producer-64                                                                                                                                                                       
+        compression.type = none                                                                                                                                                                       
+        connections.max.idle.ms = 540000                                                                                                                                                              
+        delivery.timeout.ms = 120000                                                                                                                                                                  
+        enable.idempotence = true                                                                                                                                                                     
+        interceptor.classes = []                                                                                                                                                                      
+        key.serializer = class org.apache.kafka.common.serialization.StringSerializer                                                                                                                 
+        linger.ms = 0                                                                                                                                                                                 
+        max.block.ms = 60000                                                                                                                                                                          
+        max.in.flight.requests.per.connection = 5                                                                                                                                                     
+        max.request.size = 1048576                                                                                                                                                                    
+        metadata.max.age.ms = 300000                                                                                                                                                                  
+        metadata.max.idle.ms = 300000                                                                                                                                                                 
+        metric.reporters = []                                                                                                                                                                         
+        metrics.num.samples = 2                                                                                                                                                                       
+        metrics.recording.level = INFO                                                                                                                                                                
+        metrics.sample.window.ms = 30000                                                                                                                                                              
+        partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner                                                                                                      
+        receive.buffer.bytes = 32768                                                                                                                                                                  
+        reconnect.backoff.max.ms = 1000                                                                                                                                                               
+        reconnect.backoff.ms = 50                                                                                                                                                                     
+        request.timeout.ms = 30000                                                                                                                                                                    
+        retries = 2147483647                                                                                                                                                                          
+        retry.backoff.ms = 100                                                                                                                                                                        
+        sasl.client.callback.handler.class = null                                                                                                                                                     
+        sasl.jaas.config = null                                                                                                                                                                       
+        sasl.kerberos.kinit.cmd = /usr/bin/kinit                                                                                                                                                      
+        sasl.kerberos.min.time.before.relogin = 60000                                                                                                                                                 
+        sasl.kerberos.service.name = kafka                                                                                                                                                            
+        sasl.kerberos.ticket.renew.jitter = 0.05                                                                                                                                                      
+        sasl.kerberos.ticket.renew.window.factor = 0.8                                                                                                                                                
+        sasl.login.callback.handler.class = null                                                                                                                                                      
+        sasl.login.class = null                                                                                                                                                                       
+        sasl.login.refresh.buffer.seconds = 300                                                                                                                                                       
+        sasl.login.refresh.min.period.seconds = 60                                                                                                                                                    
+        sasl.login.refresh.window.factor = 0.8                                                                                                                                                        
+        sasl.login.refresh.window.jitter = 0.05                                                                                                                                                       
+        sasl.mechanism = GSSAPI                                                                                                                                                                       
+        security.protocol = SASL_SSL                                                                                                                                                                  
+        security.providers = null                                                                                                                                                                     
+        send.buffer.bytes = 131072                                                                                                                                                                    
+        socket.connection.setup.timeout.max.ms = 30000                                                                                                                                                
+        socket.connection.setup.timeout.ms = 10000                                                                                                                                                    
+        ssl.cipher.suites = null                                                                                                                                                                      
+        ssl.enabled.protocols = [TLSv1.2]                                                                                                                                                             
+        ssl.endpoint.identification.algorithm = https                                                                                                                                                 
+        ssl.engine.factory.class = null                                                                                                                                                               
+        ssl.key.password = null                                                                                                                                                                       
+        ssl.keymanager.algorithm = SunX509                                                                                                                                                            
+        ssl.keystore.certificate.chain = null                                                                                                                                                         
+        ssl.keystore.key = null                                                                                                                                                                       
+        ssl.keystore.location = null                                                                                                                                                                  
+        ssl.keystore.password = null                                                                                                                                                                  
+        ssl.keystore.type = JKS                                                                                                                                                                       
+        ssl.protocol = TLSv1.2                                                                                                                                                                        
+        ssl.provider = null                                                                                                                                                                           
+        ssl.secure.random.implementation = null                                                                                                                                                       
+        ssl.trustmanager.algorithm = PKIX                                                                                                                                                             
+        ssl.truststore.certificates = null                                                                                                                                                            
+        ssl.truststore.location = /var/kafka/jssecacerts                                                                                                                                              
+        ssl.truststore.password = [hidden]                                                                                                                                                            
+        ssl.truststore.type = JKS                                                                                                                                                                     
+        transaction.timeout.ms = 60000                                                                                                                                                                
+        transactional.id = null                                                                                                                                                                       
+        value.serializer = class org.apache.kafka.common.serialization.StringSerializer                                                                                                               
+                                                                                                                                                                                                      
+2022-08-10 17:27:20.367  INFO 1 --- [enerContainer-2] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=producer-64] Instantiated an idempotent producer.                                 
+2022-08-10 17:27:20.368  WARN 1 --- [enerContainer-2] org.apache.kafka.clients.ClientUtils     : Couldn't resolve server sbmdeqlzi001.ambientesbc.lab:9093 from bootstrap.servers as DNS resolution fa
+iled for sbmdeqlzi001.ambientesbc.lab                                                                                                                                                                 
+2022-08-10 17:27:20.368  WARN 1 --- [enerContainer-2] org.apache.kafka.clients.ClientUtils     : Couldn't resolve server sbmdeqlzi002.ambientesbc.lab:9093 from bootstrap.servers as DNS resolution fa
+iled for sbmdeqlzi002.ambientesbc.lab                                                                                                                                                                 
+2022-08-10 17:27:20.368  WARN 1 --- [enerContainer-2] org.apache.kafka.clients.ClientUtils     : Couldn't resolve server sbmdeqlzi003.ambientesbc.lab:9093 from bootstrap.servers as DNS resolution fa
+iled for sbmdeqlzi003.ambientesbc.lab                                                                                                                                                                 
+2022-08-10 17:27:20.368  INFO 1 --- [enerContainer-2] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=producer-64] Closing the Kafka producer with timeoutMillis = 0 ms.                
+2022-08-10 17:27:20.369  INFO 1 --- [enerContainer-2] org.apache.kafka.common.metrics.Metrics  : Metrics scheduler closed                                                                             
+2022-08-10 17:27:20.369  INFO 1 --- [enerContainer-2] org.apache.kafka.common.metrics.Metrics  : Closing reporter org.apache.kafka.common.metrics.JmxReporter                                         
+2022-08-10 17:27:20.369  INFO 1 --- [enerContainer-2] org.apache.kafka.common.metrics.Metrics  : Metrics reporters closed                                                                             
+2022-08-10 17:27:20.369  INFO 1 --- [enerContainer-2] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for producer-64 unregistered                                                 
+2022-08-10 17:27:20.370  INFO 1 --- [enerContainer-9] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values:                                                                               
+        acks = -1                                                                                                                                                                                     
+        batch.size = 16384                                                                                                                                                                            
+        bootstrap.servers = [sbmdeqlzi001.ambientesbc.lab:9093, sbmdeqlzi002.ambientesbc.lab:9093, sbmdeqlzi003.ambientesbc.lab:9093]                                                                 
+        buffer.memory = 33554432                                                                                                                                                                      
+        client.dns.lookup = use_all_dns_ips                                                                                                                                                           
+        client.id = producer-65                                                                                                                                                                       
+        compression.type = none                                                                                                                                                                       
+        connections.max.idle.ms = 540000                                                                                                                                                              
+        delivery.timeout.ms = 120000                                                                                                                                                                  
+        enable.idempotence = true                                                                                                                                                                     
+        interceptor.classes = []                                                                                                                                                                      
+        key.serializer = class org.apache.kafka.common.serialization.StringSerializer                                                                                                                 
+        linger.ms = 0                                                                                                                                                                                 
+        max.block.ms = 60000                                                                                                                                                                          
+        max.in.flight.requests.per.connection = 5                                                                                                                                                     
+        max.request.size = 1048576                                                                                                                                                                    
+        metadata.max.age.ms = 300000                                                                                                                                                                  
+        metadata.max.idle.ms = 300000                                                                                                                                                                 
+        metric.reporters = []                                                                                                                                                                         
+        metrics.num.samples = 2                                                                                                                                                                       
+        metrics.recording.level = INFO                                                                                                                                                                
+        metrics.sample.window.ms = 30000                                                                                                                                                              
+        partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner                                                                                                      
+        receive.buffer.bytes = 32768                                                                                                                                                                  
+        reconnect.backoff.max.ms = 1000                                                                                                                                                               
+        reconnect.backoff.ms = 50                                                                                                                                                                     
+        request.timeout.ms = 30000                                                                                                                                                                    
+        retries = 2147483647                                                                                                                                                                          
+        retry.backoff.ms = 100                                                                                                                                                                        
+        sasl.client.callback.handler.class = null                                                                                                                                                     
+        sasl.jaas.config = null                                                                                                                                                                       
+        sasl.kerberos.kinit.cmd = /usr/bin/kinit                                                                                                                                                      
+        sasl.kerberos.min.time.before.relogin = 60000                                                                                                                                                 
+        sasl.kerberos.service.name = kafka                                                                                                                                                            
+        sasl.kerberos.ticket.renew.jitter = 0.05                                                                                                                                                      
+        sasl.kerberos.ticket.renew.window.factor = 0.8                                                                                                                                                
+        sasl.login.callback.handler.class = null                                                                                                                                                      
+        sasl.login.class = null                                                                                                                                                                       
+        sasl.login.refresh.buffer.seconds = 300                                                                                                                                                       
+        sasl.login.refresh.min.period.seconds = 60                                                                                                                                                    
+        sasl.login.refresh.window.factor = 0.8                                                                                                                                                        
+        sasl.login.refresh.window.jitter = 0.05                                                                                                                                                       
+        sasl.mechanism = GSSAPI                                                                                                                                                                       
+        security.protocol = SASL_SSL                                                                                                                                                                  
+        security.providers = null                                                                                                                                                                     
+        send.buffer.bytes = 131072                                                                                                                                                                    
+        socket.connection.setup.timeout.max.ms = 30000                                                                                                                                                
+        socket.connection.setup.timeout.ms = 10000                                                                                                                                                    
+        ssl.cipher.suites = null                                                                                                                                                                      
+        ssl.enabled.protocols = [TLSv1.2]                                                                                                                                                             
+        ssl.endpoint.identification.algorithm = https                                                                                                                                                 
+        ssl.engine.factory.class = null                                                                                                                                                               
+        ssl.key.password = null                                                                                                                                                                       
+        ssl.keymanager.algorithm = SunX509                                                                                                                                                            
+        ssl.keystore.certificate.chain = null                                                                                                                                                         
+        ssl.keystore.key = null                                                                                                                                                                       
+        ssl.keystore.location = null                                                                                                                                                                  
+        ssl.keystore.password = null                                                                                                                                                                  
+        ssl.keystore.type = JKS                                                                                                                                                                       
+        ssl.protocol = TLSv1.2                                                                                                                                                                        
+        ssl.provider = null                                                                                                                                                                           
+        ssl.secure.random.implementation = null                                                                                                                                                       
+        ssl.trustmanager.algorithm = PKIX                                                                                                                                                             
+        ssl.truststore.certificates = null                                                                                                                                                            
+        ssl.truststore.location = /var/kafka/jssecacerts                                                                                                                                              
+        ssl.truststore.password = [hidden]                                                                                                                                                            
+        ssl.truststore.type = JKS                                                                                                                                                                     
+        transaction.timeout.ms = 60000                                                                                                                                                                
+        transactional.id = null                                                                                                                                                                       
+        value.serializer = class org.apache.kafka.common.serialization.StringSerializer                                                                                                               
+                                                                                                                                                                                                      
+2022-08-10 17:27:20.371  INFO 1 --- [enerContainer-9] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=producer-65] Instantiated an idempotent producer.                                 
+2022-08-10 17:27:20.392  WARN 1 --- [enerContainer-9] org.apache.kafka.clients.ClientUtils     : Couldn't resolve server sbmdeqlzi001.ambientesbc.lab:9093 from bootstrap.servers as DNS resolution fa
+iled for sbmdeqlzi001.ambientesbc.lab                                                                                                                                                                 
+2022-08-10 17:27:20.392  WARN 1 --- [enerContainer-9] org.apache.kafka.clients.ClientUtils     : Couldn't resolve server sbmdeqlzi002.ambientesbc.lab:9093 from bootstrap.servers as DNS resolution fa
+iled for sbmdeqlzi002.ambientesbc.lab                                                                                                                                                                 
+2022-08-10 17:27:20.392  WARN 1 --- [enerContainer-9] org.apache.kafka.clients.ClientUtils     : Couldn't resolve server sbmdeqlzi003.ambientesbc.lab:9093 from bootstrap.servers as DNS resolution fa
+iled for sbmdeqlzi003.ambientesbc.lab                                                                                                                                                                 
+2022-08-10 17:27:20.392  INFO 1 --- [enerContainer-9] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=producer-65] Closing the Kafka producer with timeoutMillis = 0 ms.                
+2022-08-10 17:27:20.392  INFO 1 --- [enerContainer-9] org.apache.kafka.common.metrics.Metrics  : Metrics scheduler closed                                                                             
+2022-08-10 17:27:20.392  INFO 1 --- [enerContainer-9] org.apache.kafka.common.metrics.Metrics  : Closing reporter org.apache.kafka.common.metrics.JmxReporter                                         
+2022-08-10 17:27:20.392  INFO 1 --- [enerContainer-9] org.apache.kafka.common.metrics.Metrics  : Metrics reporters closed                                                                             
+2022-08-10 17:27:20.392 ERROR 1 --- [enerContainer-2] i.a.c.m.listener.QueueMessageHandler     : An exception occurred while invoking the handler method                                              
+                                                                                                                                                                                                      
+org.apache.kafka.common.KafkaException: Failed to construct kafka producer                                                                                                                            
+        at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:439) ~[kafka-clients-3.0.1.jar!/:na]                                                                             
+        at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:290) ~[kafka-clients-3.0.1.jar!/:na]                                                                             
+        at org.springframework.kafka.core.DefaultKafkaProducerFactory.createRawProducer(DefaultKafkaProducerFactory.java:843) ~[spring-kafka-2.8.5.jar!/:2.8.5]                                       
+        at org.springframework.kafka.core.DefaultKafkaProducerFactory.createKafkaProducer(DefaultKafkaProducerFactory.java:694) ~[spring-kafka-2.8.5.jar!/:2.8.5]                                     
+        at org.springframework.kafka.core.DefaultKafkaProducerFactory.doCreateProducer(DefaultKafkaProducerFactory.java:664) ~[spring-kafka-2.8.5.jar!/:2.8.5]                                        
+        at org.springframework.kafka.core.DefaultKafkaProducerFactory.createProducer(DefaultKafkaProducerFactory.java:639) ~[spring-kafka-2.8.5.jar!/:2.8.5]                                          
+        at org.springframework.kafka.core.DefaultKafkaProducerFactory.createProducer(DefaultKafkaProducerFactory.java:633) ~[spring-kafka-2.8.5.jar!/:2.8.5]                                          
+        at org.springframework.kafka.core.KafkaTemplate.getTheProducer(KafkaTemplate.java:754) ~[spring-kafka-2.8.5.jar!/:2.8.5]                                                                      
+        at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:638) ~[spring-kafka-2.8.5.jar!/:2.8.5]                                                                              
+        at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:403) ~[spring-kafka-2.8.5.jar!/:2.8.5]                                                                                
+        at co.com.bancolombia.sendlz.sender.Sender.sendMessage(Sender.java:40) ~[classes!/:na]                                                                                                        
+        at co.com.bancolombia.sendlz.subscriber.Subscriber.receiveMessage(Subscriber.java:46) ~[classes!/:na]                                                                                         
+        at sun.reflect.GeneratedMethodAccessor70.invoke(Unknown Source) ~[na:na]                                                                                                                      
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_275]                                                                                      
+        at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_275]                                                                                                                           
+        at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:169) ~[spring-messaging-5.3.19.jar!/:5.3.19]                                  
+        at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:119) ~[spring-messaging-5.3.19.jar!/:5.3.19]                                    
+        at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:569) [spring-messaging-5.3.19.jar!/:5.3.19]                    
+        at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:524) [spring-messaging-5.3.19.jar!/:5.3.19]          
+        at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:458) [spring-messaging-5.3.19.jar!/:5.3.19]                  
+        at io.awspring.cloud.messaging.listener.SimpleMessageListenerContainer.executeMessage(SimpleMessageListenerContainer.java:222) [spring-cloud-aws-messaging-2.4.0.jar!/:2.4.0]                 
+        at io.awspring.cloud.messaging.listener.SimpleMessageListenerContainer$MessageGroupExecutor.run(SimpleMessageListenerContainer.java:426) [spring-cloud-aws-messaging-2.4.0.jar!/:2.4.0]       
+        at io.awspring.cloud.messaging.listener.SimpleMessageListenerContainer$SignalExecutingRunnable.run(SimpleMessageListenerContainer.java:310) [spring-cloud-aws-messaging-2.4.0.jar!/:2.4.0]    
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_275]                                                                                             
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_275]                                                                                             
+        at java.lang.Thread.run(Thread.java:823) [na:1.8.0_275]                                                                                                                                       
+Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers                                                                                    
+        at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89) ~[kafka-clients-3.0.1.jar!/:na]                                                                        
+        at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48) ~[kafka-clients-3.0.1.jar!/:na]                                                                        
+        at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:413) ~[kafka-clients-3.0.1.jar!/:na]                                                                             
+        ... 25 common frames omitted                                                                                                                                                                  
+                                                                                                                                                                                                      
+2022-08-10 17:27:20.392  INFO 1 --- [enerContainer-9] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for producer-65 unregistered                                                 
+2022-08-10 17:27:20.394  INFO 1 --- [enerContainer-7] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values:                                                                               

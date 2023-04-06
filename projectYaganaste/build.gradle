@@ -1,0 +1,45 @@
+import com.sun.tools.sjavac.server.Sjavac
+plugins {
+    id 'org.springframework.boot' version '2.6.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOTAWS'
+sourceCompatibility = '1.8'
+
+java{
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Dependencia de Spring Boot Web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Dependencia de Thymeleaf
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    // Dependencia de Spring Boot DevTools
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    implementation group: 'com.amazonaws', name: 'aws-java-sdk-sqs', version: '1.12.294'
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+
+    implementation group: 'io.awspring.cloud', name: 'spring-cloud-starter-aws-messaging', version: '2.4.0'
+    implementation group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.12.300'
+
+    implementation group: 'com.amazonaws', name: 'aws-java-sdk-dynamodb', version: '1.12.380'
+    implementation group: 'com.github.derjust', name: 'spring-data-dynamodb', version: '5.1.0'
+
+}
+
+test {
+    useJUnitPlatform()
+}

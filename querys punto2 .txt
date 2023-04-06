@@ -1,0 +1,146 @@
+Consulta para obtener todas las compras detalladas con los datos del cliente, de los productos y de cada una de las ventas:
+
+SELECT c.IDCLIENTE, c.NOMBRE, p.DESCRIPCION, pr.DESCRIPCION AS PROVINCIA, pr.IDPROVINCIA, pr.DESCRIPCION AS PROVINCIA, prod.PRECIO, com.FECHA
+FROM CLIENTES c
+JOIN PROVINCIAS pr ON c.IDPROVINCIA = pr.IDPROVINCIA
+JOIN COMPRAS com ON c.IDCLIENTE = com.IDCLIENTE
+JOIN PRODUCTOS prod ON com.IDPRODUCTO = prod.IDPRODUCTO
+JOIN PROVINCIAS p ON p.IDPROVINCIA = c.IDPROVINCIA
+ORDER BY com.FECHA;
+
+
+Consulta para obtener las compras detalladas de los clientes de Teruel:
+SELECT c.IDCLIENTE, c.NOMBRE, p.DESCRIPCION, prod.DESCRIPCION AS PRODUCTO, prod.PRECIO, com.FECHA
+FROM CLIENTES c
+JOIN PROVINCIAS p ON c.IDPROVINCIA = p.IDPROVINCIA
+JOIN COMPRAS com ON c.IDCLIENTE = com.IDCLIENTE
+JOIN PRODUCTOS prod ON com.IDPRODUCTO = prod.IDPRODUCTO
+WHERE p.DESCRIPCION = 'Teruel'
+ORDER BY com.FECHA;
+
+
+Consulta para obtener las compras detalladas de los clientes de Huesca y Zaragoza en el primer trimestre de 2015:
+SELECT c.IDCLIENTE, c.NOMBRE, p.DESCRIPCION, prod.DESCRIPCION AS PRODUCTO, prod.PRECIO, com.FECHA
+FROM CLIENTES c
+JOIN PROVINCIAS p ON c.IDPROVINCIA = p.IDPROVINCIA
+JOIN COMPRAS com ON c.IDCLIENTE = com.IDCLIENTE
+JOIN PRODUCTOS prod ON com.IDPRODUCTO = prod.IDPRODUCTO
+WHERE p.DESCRIPCION IN ('Huesca', 'Zaragoza') AND com.FECHA >= '2015-01-01' AND com.FECHA <= '2015-03-31'
+ORDER BY com.FECHA;
+
+
+Consulta para obtener las compras agrupadas por producto de todos los clientes mostrando el número de compras y el importe total para cada producto por cada uno de los clientes:
+SELECT c.IDCLIENTE, p.DESCRIPCION AS PROVINCIA, prod.DESCRIPCION AS PRODUCTO, COUNT(*) AS NUMERO_COMPRAS, SUM(prod.PRECIO) AS IMPORTE_TOTAL
+FROM CLIENTES c
+JOIN PROVINCIAS p ON c.IDPROVINCIA = p.IDPROVINCIA
+JOIN COMPRAS com ON c.IDCLIENTE = com.IDCLIENTE
+JOIN PRODUCTOS prod ON com.IDPRODUCTO = prod.IDPRODUCTO
+GROUP BY c.IDCLIENTE, p.DESCRIPCION, prod.DESCRIPCION
+ORDER BY c.IDCLIENTE, p.DESCRIPCION, prod.DESCRIPCION;
+
+
+Consulta para obtener el número de peonzas totales que se han comprado en el mes de marzo por los clientes de Zaragoza:
+SELECT SUM(CASE WHEN p.DESCRIPCION = 'Peonza' THEN 1 ELSE 0 END) AS num_peonzas, 
+       SUM(CASE WHEN p.DESCRIPCION = 'Peonza' THEN c.PRECIO ELSE 0 END) AS importe_total 
+FROM COMPRAS c 
+INNER JOIN CLIENTES cl ON c.IDCLIENTE = cl.IDCLIENTE 
+INNER JOIN PROVINCIAS pr ON cl.IDPROVINCIA = pr.IDPROVINCIA 
+INNER JOIN PRODUCTOS p ON c.IDPRODUCTO = p.IDPRODUCTO 
+WHERE pr.DESCRIPCION = 'Zaragoza' 
+AND MONTH(c.FECHA) = 3
+
+
+
+Las compras realizadas por todos los clientes agrupadas por mes (código de cliente, nombre, provincia, mes, número de compras, importe total)
+SELECT cl.IDCLIENTE, cl.NOMBRE, pr.DESCRIPCION AS PROVINCIA, MONTH(c.FECHA) AS mes, 
+       COUNT(*) AS num_compras, SUM(c.PRECIO) AS importe_total 
+FROM COMPRAS c 
+INNER JOIN CLIENTES cl ON c.IDCLIENTE = cl.IDCLIENTE 
+INNER JOIN PROVINCIAS pr ON cl.IDPROVINCIA = pr.IDPROVINCIA 
+GROUP BY cl.IDCLIENTE, pr.DESCRIPCION, MONTH(c.FECHA)
+
+
+
+
+Detalle de todas las ventas agrupadas por día del mes (día del mes, producto, número de compras, importe total). Por ejemplo, los días 1 de enero, febrero, marzo y abril se agruparán como día del mes 1
+SELECT DAY(FECHA) AS DIA, IDPRODUCTO AS PRODUCTO, COUNT(IDCOMPRA) AS NUM_COMPRAS, SUM(PRECIO) AS IMPORTE_TOTAL
+FROM COMPRAS 
+INNER JOIN PRODUCTOS ON COMPRAS.IDPRODUCTO = PRODUCTOS.IDPRODUCTO 
+GROUP BY DIA, PRODUCTO
+ORDER BY DIA, PRODUCTO;
+
+
+
+-- Tabla PROVINCIAS
+CREATE TABLE PROVINCIAS (
+  IDPROVINCIA INT PRIMARY KEY,
+  DESCRIPCION VARCHAR(50)
+);
+
+-- Inserts para PROVINCIAS
+INSERT INTO PROVINCIAS (IDPROVINCIA, DESCRIPCION) VALUES
+(1, 'Zaragoza'),
+(2, 'Huesca'),
+(3, 'Teruel');
+
+-- Tabla PRODUCTOS
+CREATE TABLE PRODUCTOS (
+  IDPRODUCTO CHAR(1) PRIMARY KEY,
+  DESCRIPCION VARCHAR(50),
+  PRECIO DECIMAL(6,2)
+);
+
+-- Inserts para PRODUCTOS
+INSERT INTO PRODUCTOS (IDPRODUCTO, DESCRIPCION, PRECIO) VALUES
+('A', 'Playmobil', 5.00),
+('B', 'Puzzle', 10.25),
+('C', 'Peonza', 3.65);
+
+-- Tabla CLIENTES
+CREATE TABLE CLIENTES (
+  IDCLIENTE INT PRIMARY KEY,
+  NOMBRE VARCHAR(50),
+  IDPROVINCIA INT,
+  FOREIGN KEY (IDPROVINCIA) REFERENCES PROVINCIAS(IDPROVINCIA)
+);
+
+-- Inserts para CLIENTES
+INSERT INTO CLIENTES (IDCLIENTE, NOMBRE, IDPROVINCIA) VALUES
+(1, 'Juan Palomo', 1),
+(2, 'Armando Ruido', 2),
+(3, 'Carmelo Cotón', 1),
+(4, 'Dolores Fuertes', 3),
+(5, 'Alberto Mate', 3);
+
+-- Tabla COMPRAS
+CREATE TABLE COMPRAS (
+  IDCOMPRA INT PRIMARY KEY,
+  IDCLIENTE INT,
+  IDPRODUCTO CHAR(1),
+  FECHA DATE,
+  FOREIGN KEY (IDCLIENTE) REFERENCES CLIENTES(IDCLIENTE),
+  FOREIGN KEY (IDPRODUCTO) REFERENCES PRODUCTOS(IDPRODUCTO)
+);
+
+-- Inserts para COMPRAS
+INSERT INTO COMPRAS (IDCOMPRA, IDCLIENTE, IDPRODUCTO, FECHA) VALUES
+(1, 1, 'C', '2022-01-01'),
+(2, 2, 'B', '2022-01-15'),
+(3, 2, 'C', '2022-01-22'),
+(4, 4, 'A', '2022-02-03'),
+(5, 3, 'A', '2022-02-05'),
+(6, 1, 'B', '2022-02-16'),
+(7, 1, 'B', '2022-02-21'),
+(8, 4, 'A', '2022-02-21'),
+(9, 5, 'C', '2022-03-01'),
+(10, 3, 'A', '2022-03-01'),
+(11, 3, 'C', '2022-03-05'),
+(12, 2, 'B', '2022-03-07'),
+(13, 2, 'B', '2022-03-11'),
+(14, 1, 'A', '2022-03-18'),
+(15, 1, 'C', '2022-03-29'),
+(16, 5, 'B', '2022-04-08'),
+(17, 5, 'C', '2022-04-09'),
+(18, 4, 'C', '2022-04-09'),	
+(19, 1,	'A', '2022-04-12'),
+(20, 2,	'A', '2022-04-19');
